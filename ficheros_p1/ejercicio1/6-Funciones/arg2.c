@@ -8,7 +8,7 @@ struct _complex_ {
 
 /* Forward declaration */
 int sum(int *pa, int *pb);
-struct _complex_ * sumC( struct _complex_ *a,  struct _complex_ *b);
+struct _complex_ sumC( struct _complex_ *a,  struct _complex_ *b);
 
 int main(void)
 {
@@ -22,7 +22,8 @@ int main(void)
 	printf("Complex numbers addition. (%f,%f i) + (%f,%f i) = ",
 			xc.re, xc.im, yc.re, yc.im);
 
-	zc = sumC(&xc, &yc);
+	struct _complex_ aux = sumC(&xc, &yc);
+	zc = &aux;
 	printf("(%f,%f i)\n", zc->re, zc->im);
 
 	int total = sum(&x,ptr);
@@ -42,7 +43,7 @@ int sum(int *pa, int *pb)
 	return c;  /* return by value */
 }
 
-struct _complex_ * sumC( struct _complex_* a,  struct _complex_* b)
+struct _complex_ sumC( struct _complex_* a,  struct _complex_* b)
 {
 	struct _complex_ r;
 	r.re = a->re + b->re;
@@ -51,5 +52,5 @@ struct _complex_ * sumC( struct _complex_* a,  struct _complex_* b)
 	// We modify the first argument
 	a->re = 12.5;
 	a->im = 13.4;
-	return &r;
+	return r;
 }
