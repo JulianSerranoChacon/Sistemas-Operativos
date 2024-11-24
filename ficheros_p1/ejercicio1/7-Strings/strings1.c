@@ -23,4 +23,3 @@ int main()
 	msg[0] = 'B', msg[1] = 'y';
 	printf("msg: %s, p: %s, msg2: %s\n", msg, p, msg2);
 }
-
