@@ -15,7 +15,9 @@ void imprimeArray(int v[],int size)
 // function that copies the contents of a source array in a destination array
 void copyArray(int src[],int dst[],int size)
 {
- 	dst = src;
+ 	//dst = src; código original
+	for(int i = 0; i<size;i++)// código arreglado
+		dst[i] = src[i];
 }
 
 
